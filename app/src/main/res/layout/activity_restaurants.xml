@@ -7,7 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".ui.RestaurantsActivity">
+    tools:context=".ui.RestaurantListActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
