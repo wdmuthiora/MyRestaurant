@@ -49,6 +49,7 @@ public class RestaurantListActivity extends AppCompatActivity {
 
         //interacting with the YELP API
         YelpApi client = YelpClient.getClient();
+
         //Search restaurants based on the term provided, (location),
         Call<YelpBusinessesSearchResponse> call = client.getRestaurants(location, "restaurants");
 
@@ -61,26 +62,32 @@ public class RestaurantListActivity extends AppCompatActivity {
             public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
 
                 hideProgressBar();
+
                 //if the network response is successful.
                 if (response.isSuccessful()) {
                     restaurants = response.body().getBusinesses();
 
 //    RecyclerView.Adapter section
+
                     //Define adapter,that takes in context, and an array to display. In this case, the restaurants, returned from body of the network query's results.
                     mAdapter = new RestaurantListAdapter(RestaurantListActivity.this, restaurants);
+
                     //set the RecyclerView's adapter to this custom adapter.
                     mRecyclerView.setAdapter(mAdapter);
 
 //    LayoutManager section
                     //Define a LayoutManager to the RecyclerView, to position each item inside the RecyclerView.
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RestaurantListActivity.this);
+
                     //set LayoutManager to layoutManager
                     mRecyclerView.setLayoutManager(layoutManager);
+
                     //So that they don't attempt to resize for best-fit
                     mRecyclerView.setHasFixedSize(true);
 
                     showRestaurants();
                 }
+
                 //if the network response is unsuccessful.
                 else {
                     showUnsuccessfulMessage();

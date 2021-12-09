@@ -1,6 +1,5 @@
 package com.moringaschool.myrestaurants.adapters;
 
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,6 +11,7 @@ import com.moringaschool.myrestaurants.ui.RestaurantDetailFragment;
 import java.util.List;
 
 public class RestaurantPagerAdapter extends FragmentPagerAdapter {
+
     private List<Business> mRestaurants;
 
     //Constructor
@@ -34,4 +34,5 @@ public class RestaurantPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mRestaurants.get(position).getName();
     }
+
 }

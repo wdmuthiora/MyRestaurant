@@ -38,4 +38,5 @@ public class RestaurantDetailActivity extends AppCompatActivity {
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }
+
 }
